@@ -1,23 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sorteador de Números</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@800&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<meta name="theme-color" content="#C58DE7">
+</head>
+<body>
+  <main class="container">
+    <h1>Sorteador de Números</h1>
+
+    <div class="form">
+      <label>
+        Quantos números?
+        <input type="number" id="qtd" min="1" value="2">
+      </label>
+      <label>
+        De:
+        <input type="number" id="min" value="1">
+      </label>
+      <label>
+        Até:
+        <input type="number" id="max" value="100">
+      </label>
+      <label class="repeat">
+        <input type="checkbox" id="noRepeat" checked>
+        Não repetir números
+      </label>
+      <button id="drawBtn">Sortear 🎲</button>
+    </div>
+    
+    <div class="results" id="results"></div>
+    
+    <button id="drawAgain" class="hidden">Sortear Novamente 🔁</button>
+    <div id="history" class="history"></div>
+
+  </main>
+
+  <script src="script.js">
+      if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(() => console.log('Service Worker registrado com sucesso!'))
+      .catch((err) => console.error('Erro ao registrar o Service Worker', err));
+  }
+
+  </script>
+</body>
 </html>
